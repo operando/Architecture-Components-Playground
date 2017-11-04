@@ -27,6 +27,24 @@ Presenterをライフサイクルと合わせて処理させたい場合には�
 LifecycleObserverを実装したクラスの再利用性が高い(実装したクラスがどういうことをするかにもよるけど)
 
 
+
+### SupportActivity
+
+* SupportActivityがLifecycleOwnerを実装してる
+ * Support Library 26.1.0から
+* FragmentActivityでなぜかgetLifecycleメソッドOverrideしてる
+
+```java
+    @CallSuper
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        mLifecycleRegistry.markState(Lifecycle.State.CREATED);
+        super.onSaveInstanceState(outState);
+    }
+```
+
+
+
 ## LiveData
 
 

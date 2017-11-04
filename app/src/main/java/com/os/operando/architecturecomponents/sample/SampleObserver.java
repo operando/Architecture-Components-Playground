@@ -10,10 +10,6 @@ public class SampleObserver implements LifecycleObserver {
 
     private static final String TAG = SampleObserver.class.getSimpleName();
 
-    public SampleObserver(Lifecycle lifecycle) {
-        lifecycle.addObserver(this);
-    }
-
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     void onCreate() {
         Log.d(TAG, "onCreate");

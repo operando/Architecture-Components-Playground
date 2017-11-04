@@ -1,15 +1,15 @@
 package com.os.operando.architecturecomponents.sample;
 
-import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends LifecycleActivity {
+public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -18,7 +18,7 @@ public class MainActivity extends LifecycleActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new SampleObserver(getLifecycle());
+        getLifecycle().addObserver(new SampleObserver());
 
         // startActivity(Main2Activity.createIntent(this));
 

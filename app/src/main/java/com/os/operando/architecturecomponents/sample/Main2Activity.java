@@ -1,15 +1,11 @@
 package com.os.operando.architecturecomponents.sample;
 
-import android.arch.lifecycle.LifecycleRegistry;
-import android.arch.lifecycle.LifecycleRegistryOwner;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-public class Main2Activity extends AppCompatActivity implements LifecycleRegistryOwner {
-
-    private final LifecycleRegistry lifecycleRegistry = new LifecycleRegistry(this);
+public class Main2Activity extends AppCompatActivity {
 
     public static Intent createIntent(Context context) {
         Intent i = new Intent(context, Main2Activity.class);
@@ -21,11 +17,6 @@ public class Main2Activity extends AppCompatActivity implements LifecycleRegistr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        new SampleObserver(getLifecycle());
-    }
-
-    @Override
-    public LifecycleRegistry getLifecycle() {
-        return lifecycleRegistry;
+        getLifecycle().addObserver(new SampleObserver());
     }
 }
